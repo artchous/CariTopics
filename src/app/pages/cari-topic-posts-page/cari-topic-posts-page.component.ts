@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {TopicPostDisplay} from '../../models/topic-post-display.model';
 import {TopicsPostsService} from '../../services/topics-posts.service';
 
