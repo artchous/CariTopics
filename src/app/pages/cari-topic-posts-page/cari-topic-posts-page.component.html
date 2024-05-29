@@ -1,1 +1,14 @@
 <p>cari-topic-posts-page works!</p>
+<mat-accordion *ngIf="allTopicPostsDisplay.length > 0">
+  <mat-expansion-panel *ngFor="let allTopicPostDisplay of allTopicPostsDisplay">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{allTopicPostDisplay.titre}}
+      </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+</mat-accordion>
