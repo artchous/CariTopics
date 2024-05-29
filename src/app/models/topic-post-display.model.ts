@@ -8,9 +8,9 @@ export class TopicPostDisplay {
   public description: string;
   public files: TopicFile[];
   // public comments: TopicComment[];
-  
+
   constructor() {
-    this.titre = 'myTitle';
+    this.titre = 'myTitle test';
     this.username = 'myUsername';
     this.description = 'myDescription';
     this.files = [new TopicFile()];

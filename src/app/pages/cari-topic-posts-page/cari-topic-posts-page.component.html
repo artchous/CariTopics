@@ -1,4 +1,4 @@
-<p>cari-topic-posts-page works!</p>
+<!--<p>cari-topic-posts-page works!</p>-->
 <mat-accordion *ngIf="allTopicPostsDisplay.length > 0">
   <mat-expansion-panel *ngFor="let allTopicPostDisplay of allTopicPostsDisplay">
     <mat-expansion-panel-header>
@@ -10,5 +10,8 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>This is the primary content of the panel.</p>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="comment()">Laisser un commentaire</button>
+    </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>

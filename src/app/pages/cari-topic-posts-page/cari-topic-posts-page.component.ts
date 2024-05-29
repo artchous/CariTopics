@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TopicPostDisplay} from '../../models/topic-post-display.model';
 import {TopicsPostsService} from '../../services/topics-posts.service';
+import {popNumber} from "rxjs/internal/util/args";
 
 @Component({
   selector: 'app-cari-topic-posts-page',
@@ -12,4 +13,6 @@ export class CariTopicPostsPageComponent {
 
   constructor(private topicsPostsService: TopicsPostsService) {
   }
+
+  comment() {}
 }
