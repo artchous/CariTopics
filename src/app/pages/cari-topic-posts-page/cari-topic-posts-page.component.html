@@ -1,17 +1,31 @@
 <!--<p>cari-topic-posts-page works!</p>-->
 <mat-accordion *ngIf="allTopicPostsDisplay.length > 0">
   <mat-expansion-panel *ngFor="let allTopicPostDisplay of allTopicPostsDisplay">
+
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{allTopicPostDisplay.titre}}
       </mat-panel-title>
-      <mat-panel-description>
-        This is a summary of the content
+      <mat-panel-description >
+        {{allTopicPostDisplay.username}}
+        {{allTopicPostDisplay.date.toLocaleDateString()}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
+
+
+    <p class="cDescrip"> {{allTopicPostDisplay.description}} </p>
+    <p class="cFile">
+      <mat-tab-group>
+        <mat-tab label="First"> {{allTopicPostDisplay.files}} </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+      </mat-tab-group>
+    </p>
+    <p class="cComment"> {{allTopicPostDisplay.comments}} </p>
+
     <mat-action-row>
       <button mat-button color="primary" (click)="comment()">Laisser un commentaire</button>
     </mat-action-row>
+
   </mat-expansion-panel>
 </mat-accordion>

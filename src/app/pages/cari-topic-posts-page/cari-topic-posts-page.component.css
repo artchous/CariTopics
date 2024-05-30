@@ -1,0 +1,58 @@
+/**Le topic**/
+.mat-expansion-panel{
+  /**justify-content: space-between;
+  align-items: center;**/
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom:30px;
+  border: 3px solid #d7d7d7;
+}
+
+/**Header**/
+.mat-expansion-panel-header {
+  border-bottom: 3px solid #d7d7d7;
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0 ;
+  /**height: 50px;**/
+}
+
+/**Header:Titre du topic**/
+.mat-expansion-panel-header-title {
+  flex-grow: 2;
+  margin-left: 5px;
+}
+
+/**Header:username et date**/
+.mat-expansion-panel-header-description {
+  justify-content: space-between;
+  color: rgba(88, 154, 102, 0.4);
+}
+
+
+/** JE N'ARRIVE PAS A Y ACCEDER!!!!!**/
+/**Contient description, files et commentaires**/
+.mat-expansion-panel-body {
+  padding: 20px;
+  background-color: #d3fff3;
+}
+
+/**Bordures**/
+.cDescrip, .cFile, .cComment {
+  border-bottom: 3px solid #d7d7d7;
+  margin-top:12px;
+  margin-bottom:0;
+  padding-bottom: 12px;
+}
+
+.cDescrip {
+  text-align: justify;
+}
+
+.mat-action-row {
+  border:0;
+  padding:0;
+  margin-right:24px;
+  margin-bottom:12px;
+}
+
+
