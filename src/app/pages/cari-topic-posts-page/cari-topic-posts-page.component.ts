@@ -8,7 +8,9 @@ import {TopicsPostsService} from '../../services/topics-posts.service';
   styleUrl: './cari-topic-posts-page.component.css',
 })
 export class CariTopicPostsPageComponent {
-  public allTopicPostsDisplay: TopicPostDisplay[] = [new TopicPostDisplay(), new TopicPostDisplay(), new TopicPostDisplay(), new TopicPostDisplay()];
+  public allTopicPostsDisplay: TopicPostDisplay[] =
+    [new TopicPostDisplay(), new TopicPostDisplay(), new TopicPostDisplay(),
+      new TopicPostDisplay(), new TopicPostDisplay(),new TopicPostDisplay()];
 
   constructor(private topicsPostsService: TopicsPostsService) {
   }

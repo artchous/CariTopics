@@ -1,31 +1,37 @@
+.mat-accordion {
+  display: block;
+  margin-top:90px;
+}
+
 /**Le topic**/
 .mat-expansion-panel{
   /**justify-content: space-between;
   align-items: center;**/
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 13%;
+  margin-right: 13%;
   margin-bottom:30px;
   border: 3px solid #d7d7d7;
 }
 
-/**Header**/
+/**Topic:Header**/
 .mat-expansion-panel-header {
   border-bottom: 3px solid #d7d7d7;
   border-bottom-right-radius:0;
   border-bottom-left-radius:0 ;
-  /**height: 50px;**/
+  color:#595959;
 }
 
 /**Header:Titre du topic**/
 .mat-expansion-panel-header-title {
   flex-grow: 2;
   margin-left: 5px;
+  font-size: 1.3em;
 }
 
 /**Header:username et date**/
 .mat-expansion-panel-header-description {
-  justify-content: space-between;
-  color: rgba(88, 154, 102, 0.4);
+  justify-content: space-evenly;
+  font-size: 1em;
 }
 
 
@@ -48,6 +54,23 @@
   text-align: justify;
 }
 
+#fileTitle {
+  font-weight: bold;
+}
+
+.cComment{
+  display:flex;
+  flex-direction: column;
+}
+
+.comments{
+  margin-bottom: 10px;
+  padding:10px;
+  border-radius:10px;
+  border: 1px solid #b1abab;
+  background-color:#f2efef ;
+}
+
 .mat-action-row {
   border:0;
   padding:0;
@@ -55,4 +78,11 @@
   margin-bottom:12px;
 }
 
-
+/**
+.Essaie{
+  background-color: darkred;
+  color:white;
+  font-size: large;
+  margin:15px;
+}
+ */
