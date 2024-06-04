@@ -8,26 +8,35 @@
       </mat-panel-title>
       <mat-panel-description >
         <div>{{allTopicPostDisplay.username}}</div>
-        <div>{{allTopicPostDisplay.date.toLocaleDateString()}}</div>
+        <div>{{allTopicPostDisplay.date}}</div>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <!-- Description, fichiers, commentaires-->
-    <p class="cDescrip"> {{allTopicPostDisplay.description}} </p>
+    <div class="cDescrip"> {{allTopicPostDisplay.description}} </div>
 
     <div class="cFile">
-      <mat-tab-group >
-        <mat-tab *ngFor="let file of allTopicPostDisplay.files" id="fileTitle" label={{file.titre}}.{{file.type}} >
-          {{file.content}}
+      <mat-tab-group animationDuration="700ms" class="my-custom-tabs">
+        <mat-tab *ngFor="let file of allTopicPostDisplay.files" >
+          <ng-template mat-tab-label>
+            <div class="fileTitle">{{file.titre}}.{{file.type}}</div>
+          </ng-template>
+          <div>
+            <pre class="fileContent"> {{file.content}} </pre>
+          </div>
         </mat-tab>
       </mat-tab-group>
     </div>
 
     <div class="cComment" >
       <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
-        {{comment.username}} <br>
-        {{comment.content}}
-        {{comment.date}}
+        <div class="infoComment">
+          <div> {{comment.username}} </div>
+          <div class="dateComment"> {{comment.date}} </div>
+        </div>
+        <div class="contentComment">
+          {{comment.content}}
+        </div>
       </div>
     </div>
 

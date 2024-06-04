@@ -5,84 +5,86 @@
 
 /**Le topic**/
 .mat-expansion-panel{
-  /**justify-content: space-between;
-  align-items: center;**/
   margin-left: 13%;
   margin-right: 13%;
   margin-bottom:30px;
   border: 3px solid #d7d7d7;
 }
 
-/**Topic:Header**/
-.mat-expansion-panel-header {
+/**Topic:Header lorsque ouvert**/
+.mat-expansion-panel-header.mat-expanded{
+  height: 60px;
   border-bottom: 3px solid #d7d7d7;
   border-bottom-right-radius:0;
-  border-bottom-left-radius:0 ;
-  color:#595959;
+  border-bottom-left-radius:0;
+
 }
 
 /**Header:Titre du topic**/
 .mat-expansion-panel-header-title {
+  font-weight: bold;
   flex-grow: 2;
   margin-left: 5px;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 /**Header:username et date**/
 .mat-expansion-panel-header-description {
-  justify-content: space-evenly;
-  font-size: 1em;
+  font-weight: bold;
+  justify-content: flex-end;
+  gap:20%;
+  font-size: 1.1em;
 }
 
-
-/** JE N'ARRIVE PAS A Y ACCEDER!!!!!**/
-/**Contient description, files et commentaires**/
-.mat-expansion-panel-body {
-  padding: 20px;
-  background-color: #d3fff3;
-}
-
-/**Bordures**/
-.cDescrip, .cFile, .cComment {
+.cDescrip, .cFile {
   border-bottom: 3px solid #d7d7d7;
-  margin-top:12px;
-  margin-bottom:0;
-  padding-bottom: 12px;
 }
 
 .cDescrip {
+  border-bottom: 3px solid #d7d7d7;
+  padding-bottom: 20px;
+  margin-top:20px;
   text-align: justify;
+  font-size: 1.02em;
+  color:black;
 }
 
-#fileTitle {
-  font-weight: bold;
+.fileContent {
+  margin: 20px 0 20px;
 }
 
 .cComment{
   display:flex;
   flex-direction: column;
+  margin-top:20px;
 }
 
-.comments{
-  margin-bottom: 10px;
+.comments {
+  margin-bottom: 13px;
   padding:10px;
   border-radius:10px;
   border: 1px solid #b1abab;
   background-color:#f2efef ;
 }
 
+.infoComment {
+  font-weight: bold;
+}
+
+.dateComment {
+  font-size: 0.9em;
+}
+
+.contentComment {
+  padding:10px 0 7px;
+  color:#666666;
+}
+
 .mat-action-row {
   border:0;
   padding:0;
   margin-right:24px;
-  margin-bottom:12px;
+  margin-bottom:20px;
 }
 
-/**
-.Essaie{
-  background-color: darkred;
-  color:white;
-  font-size: large;
-  margin:15px;
-}
- */
+

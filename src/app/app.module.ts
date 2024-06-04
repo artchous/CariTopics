@@ -10,6 +10,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {TopicsPostsService} from './services/topics-posts.service';
+import {MatIcon} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -17,14 +18,15 @@ import {TopicsPostsService} from './services/topics-posts.service';
     HeaderComponent,
     CariTopicPostsPageComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    MatExpansionModule,
-    MatTabsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        MatExpansionModule,
+        MatTabsModule,
+        HttpClientModule,
+        MatIcon,
+    ],
   providers: [
     TopicsPostsService,
     provideAnimationsAsync()

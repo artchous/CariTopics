@@ -4,6 +4,7 @@
   padding:25px;
   font-size: 1.5em;
   margin-bottom:0;
+  font-weight: bold;
 
   /** Pour fixer le header **/
   position: fixed;
