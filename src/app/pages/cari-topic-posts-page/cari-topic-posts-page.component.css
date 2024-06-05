@@ -17,7 +17,6 @@
   border-bottom: 3px solid #d7d7d7;
   border-bottom-right-radius:0;
   border-bottom-left-radius:0;
-
 }
 
 /**Header:Titre du topic**/
@@ -67,24 +66,12 @@
   background-color:#f2efef ;
 }
 
-.infoComment {
-  font-weight: bold;
-}
-
-.dateComment {
-  font-size: 0.9em;
-}
-
-.contentComment {
-  padding:10px 0 7px;
-  color:#666666;
-}
-
 .mat-action-row {
   border:0;
   padding:0;
   margin-right:24px;
   margin-bottom:20px;
 }
+
 
 

@@ -16,7 +16,7 @@
     <div class="cDescrip"> {{allTopicPostDisplay.description}} </div>
 
     <div class="cFile">
-      <mat-tab-group animationDuration="700ms" class="my-custom-tabs">
+      <mat-tab-group [animationDuration]="650" class="my-custom-tabs">
         <mat-tab *ngFor="let file of allTopicPostDisplay.files" >
           <ng-template mat-tab-label>
             <div class="fileTitle">{{file.titre}}.{{file.type}}</div>
@@ -28,17 +28,14 @@
       </mat-tab-group>
     </div>
 
-    <div class="cComment" >
-      <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
-        <div class="infoComment">
-          <div> {{comment.username}} </div>
-          <div class="dateComment"> {{comment.date}} </div>
-        </div>
-        <div class="contentComment">
-          {{comment.content}}
+    <div>
+      <div class="cComment" >
+        <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
+          <app-commentaires [commentaireRecu]=comment></app-commentaires>
         </div>
       </div>
     </div>
+
 
     <!-- Bouton: ajouter un commentaire-->
     <mat-action-row>

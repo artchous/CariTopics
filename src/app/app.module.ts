@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule, HttpErrorResponse} from '@angular/common/http';
@@ -11,22 +11,24 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {TopicsPostsService} from './services/topics-posts.service';
 import {MatIcon} from "@angular/material/icon";
+import { CommentairesComponent } from './components/commentaires/commentaires.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    CommentairesComponent,
     CariTopicPostsPageComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        MatExpansionModule,
-        MatTabsModule,
-        HttpClientModule,
-        MatIcon,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatExpansionModule,
+    MatTabsModule,
+    HttpClientModule,
+    MatIcon,
+  ],
   providers: [
     TopicsPostsService,
     provideAnimationsAsync()
