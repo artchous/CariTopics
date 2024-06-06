@@ -1,28 +1,43 @@
-<!--<p>cari-topic-posts-page works!</p>-->
 <mat-accordion *ngIf="allTopicPostsDisplay.length > 0">
   <mat-expansion-panel *ngFor="let allTopicPostDisplay of allTopicPostsDisplay">
 
+    <!-- HEADER: titre, username, date -->
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{allTopicPostDisplay.titre}}
       </mat-panel-title>
       <mat-panel-description >
-        {{allTopicPostDisplay.username}}
-        {{allTopicPostDisplay.date.toLocaleDateString()}}
+        <div>{{allTopicPostDisplay.username}}</div>
+        <div>{{allTopicPostDisplay.date}}</div>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
+    <!-- Description, fichiers, commentaires-->
+    <div class="cDescrip"> {{allTopicPostDisplay.description}} </div>
 
-    <p class="cDescrip"> {{allTopicPostDisplay.description}} </p>
-    <p class="cFile">
-      <mat-tab-group>
-        <mat-tab label="First"> {{allTopicPostDisplay.files}} </mat-tab>
-        <mat-tab label="Second"> Content 2 </mat-tab>
-        <mat-tab label="Third"> Content 3 </mat-tab>
+    <div class="cFile">
+      <mat-tab-group [animationDuration]="650" class="my-custom-tabs">
+        <mat-tab *ngFor="let file of allTopicPostDisplay.files" >
+          <ng-template mat-tab-label>
+            <div class="fileTitle">{{file.titre}}.{{file.type}}</div>
+          </ng-template>
+          <div>
+            <pre class="fileContent"> {{file.content}} </pre>
+          </div>
+        </mat-tab>
       </mat-tab-group>
-    </p>
-    <p class="cComment"> {{allTopicPostDisplay.comments}} </p>
+    </div>
 
+    <div>
+      <div class="cComment" >
+        <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
+          <app-commentaires [commentaireRecu]=comment></app-commentaires>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bouton: ajouter un commentaire-->
     <mat-action-row>
       <button mat-button color="primary" (click)="comment()">Laisser un commentaire</button>
     </mat-action-row>

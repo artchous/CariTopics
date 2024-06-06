@@ -1,0 +1,12 @@
+.infoComment {
+  font-weight: bold;
+}
+
+.dateComment {
+  font-size: 0.9em;
+}
+
+.contentComment {
+  padding:10px 0 7px;
+  color:#666666;
+}

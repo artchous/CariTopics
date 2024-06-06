@@ -3,3 +3,26 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Arial", sans-serif;   background-color: #ededed;
 }
+
+.mat-expansion-panel-body {
+  padding: 0 24px 5px !important;
+}
+
+/** Mise en forme tab actif **/
+.my-custom-tabs .mdc-tab.mdc-tab--active {
+  background: #e6f9f3;
+  border-left:#6f9e93 2px solid;
+}
+
+/** Mise en forme tab pas actif **/
+.my-custom-tabs .mdc-tab {
+  border-left:#d7d7d7 1px solid;
+  border-bottom:#d7d7d7 1px solid;
+}
+
+/** Mise en forme underline - tab actif **/
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #6f9e93 !important;
+  border-top-width:2px !important;
+}
+
