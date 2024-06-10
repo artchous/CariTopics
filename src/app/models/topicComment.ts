@@ -1,7 +1,7 @@
 export class TopicComment {
   public username: string;
   public content: string;
-  public date: String;
+  public date: string;
 
   constructor() {
     this.username = 'Atlas Corrigan';
