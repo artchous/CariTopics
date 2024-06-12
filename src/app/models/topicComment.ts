@@ -1,13 +1,13 @@
 export class TopicComment {
-  public username: string;
-  public content: string;
-  public date: string;
+  public comment_user: string;
+  public comment_content: string;
+  public comment_date: string;
 
   constructor() {
-    this.username = 'Atlas Corrigan';
-    this.content = 'On peut améliorer. Il faudrait blablabablablalbalbalbalbalbalbalbalba'
+    this.comment_user = 'Atlas Corrigan';
+    this.comment_content = 'On peut améliorer. Il faudrait blablabablablalbalbalbalbalbalbalbalba'
     + '\n Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.'
-    this.date = new Date().toLocaleDateString();
+    this.comment_date = new Date().toLocaleDateString();
   }
 }
 

@@ -25,11 +25,13 @@ export class CariTopicPostsPageComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
   }
 
+  //topics
   private getTopics() {
     this.topicsPostsService.getTopicPostDisplay().subscribe(
       {
         next: result => {
-           console.log(result);
+           console.log("Topics ", result);
+           this.allTopicPostsDisplay = result;
         },
         error: err => {
           console.log(err);
