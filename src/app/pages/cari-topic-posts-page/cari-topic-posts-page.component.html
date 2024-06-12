@@ -30,7 +30,7 @@
     </div>
 
     <div>
-      <div class="cComment" >
+      <div class="cComment">
         <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
           <app-commentaires [commentaireRecu]=comment></app-commentaires>
         </div>
@@ -38,10 +38,69 @@
     </div>
 
 
-    <!-- Bouton: ajouter un commentaire-->
-    <mat-action-row>
-      <button mat-button color="primary" (click)="comment()">Laisser un commentaire</button>
-    </mat-action-row>
+    <!--
+    <form #commentForm="ngForm" (ngSubmit)="postComment(commentForm)">
+      <label>Topic n°</label>
+      <input type="number" [ngModel]=allTopicPostDisplay.id  id="topidID" name="topicID" readonly>
+      <label>Date</label>
+      <input type="text" [ngModel]="comment_date" name="comment_date" readonly>
+      <br>
+      <label>Username</label>
+      <input type="text" [ngModel]="comment_user" name="comment_user">
+      <br>
+      <label>Comment</label>
+      <input type="text" [(ngModel)]="comment_content" name="comment_content">
+      <br>
+      <button mat-button>Laisser un commentaire</button>
+    </form>
+    -->
+
+    <form class="example-form" #commentForm="ngForm" (ngSubmit)="postComment(commentForm)">
+      <table class="example-full-width"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Topic n°</mat-label>
+          <input matInput readonly
+                 [ngModel]="allTopicPostDisplay.id" name="topicID">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Today's date</mat-label>
+          <input matInput readonly
+                 [ngModel]="comment_date" name="comment_date" >
+        </mat-form-field></td>
+      </tr></table>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input
+          type="text"
+          matInput
+          [ngModel]="comment_user"
+          name="comment_user"
+          placeholder="Ex. Emma"
+          required
+        >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea
+          matInput [ngModel]="comment_content"
+          name="comment_content"
+          placeholder="Ex. You should add..."
+          minlength="10"
+          #content="ngModel"
+          required
+        ></textarea>
+        <div *ngIf="content.errors?.['minlength']">The comment must be longer.</div>
+      </mat-form-field>
+
+      <button
+        [disabled]="!commentForm.form.valid"
+        mat-raised-button >
+        Laisser un commentaire
+      </button>
+    </form>
+
 
   </mat-expansion-panel>
 </mat-accordion>

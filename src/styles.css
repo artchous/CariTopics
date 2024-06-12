@@ -26,3 +26,9 @@ body { margin: 0; font-family: Roboto, "Arial", sans-serif;   background-color: 
   border-top-width:2px !important;
 }
 
+.mat-mdc-raised-button {
+  background-color: #005c75 !important;
+  color:white !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px;
+}
