@@ -1,10 +1,9 @@
-import {Component, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
 import {TopicPostDisplay} from '../../models/topic-post-display.model';
 import {TopicsPostsService} from '../../services/topics-posts.service';
 import {finalize, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {TopicComment} from "../../models/topicComment";
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-cari-topic-posts-page',
@@ -12,20 +11,21 @@ import {NgForm} from "@angular/forms";
   styleUrl: './cari-topic-posts-page.component.css',
 })
 
-export class CariTopicPostsPageComponent implements OnChanges {
+export class CariTopicPostsPageComponent implements OnChanges, OnDestroy {
 
-  //pour formCommentaire
-  topicID: number;
+  /** Pour formCommentaire **/
   comment_user: string;
   comment_content: string;
   comment_date: string = new Date().toLocaleDateString();
-
+  protected readonly Object = Object;
   private postCommentSubscription: Subscription;
   public loader: boolean;
   public router: Router
 
+  /** Si pas de données du BE, prend les données en dur**/
   public allTopicPostsDisplay: TopicPostDisplay[] =
     [new TopicPostDisplay(), new TopicPostDisplay()];
+
 
   constructor(private topicsPostsService: TopicsPostsService) {
     this.getTopics()
@@ -53,31 +53,22 @@ export class CariTopicPostsPageComponent implements OnChanges {
   }
 
   //post Comment
-  public postComment(form: NgForm) {
-    if (form !== undefined) {
-      this.loader = true;
-      this.postCommentSubscription = this.topicsPostsService.postComment$()
-        .pipe(finalize(() => this.loader = false))
-        .subscribe(() => this.reloadPage())
-      console.log(form.value);
-    }
-
-
+  public postComment(index: number) {
+    this.loader = true;
+    let comment = new TopicComment();
+    comment.comment_date = this.comment_date;
+    comment.comment_content = this.comment_content;
+    comment.comment_user = this.comment_user;
+    comment.topicID = this.allTopicPostsDisplay[index].id //aussi = (index+1);
+    this.postCommentSubscription = this.topicsPostsService.postComment$(comment)
+      .pipe(finalize(() => this.loader = true))
+      .subscribe(() => this.reloadPage())
 
   }
 
   private reloadPage() {
-    this.router.navigated = false;
-    this.router.navigate([this.router.url.replace('%20', ' ')]);
+    window.location.reload();
   }
 
-  comment():void {
-    let newWin = window.open("about:blank", "hello","width=250,height=50");
-    // @ts-ignore
-    newWin.document.write("Ne fonctionne pas encore");
-  }
 
-  protected readonly Date = Date;
-  protected readonly TopicComment = TopicComment;
-  protected readonly onsubmit = onsubmit;
 }

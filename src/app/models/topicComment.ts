@@ -5,6 +5,7 @@ export class TopicComment {
   public comment_date: string;
 
   constructor() {
+    //this.id=1;
     this.topicID = 1;
     this.comment_user = 'Atlas Corrigan';
     this.comment_content = 'On peut améliorer. Il faudrait blablabablablalbalbalbalbalbalbalbalba'

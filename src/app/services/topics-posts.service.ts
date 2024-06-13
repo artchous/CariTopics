@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TopicPostDisplay} from "../models/topic-post-display.model";
 import {TopicComment} from "../models/topicComment";
@@ -26,9 +26,14 @@ export class TopicsPostsService  {
   }
    **/
 
-  public postComment$(): Observable<void> {
+  public postComment$(containerIn:TopicComment): Observable<void> {
     let postUrl = 'http://localhost:9000/createComment';
-    return this.httpClient.post<void>(postUrl, TopicComment);
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+    console.log(containerIn);
+
+    return this.httpClient.post<void>(postUrl, containerIn, httpOptions);
 
   }
 }
