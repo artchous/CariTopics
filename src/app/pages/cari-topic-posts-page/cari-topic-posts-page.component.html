@@ -1,46 +1,108 @@
-<mat-accordion *ngIf="allTopicPostsDisplay.length > 0">
-  <mat-expansion-panel *ngFor="let allTopicPostDisplay of allTopicPostsDisplay">
-
+<mat-accordion class="matAccordionPrincipal"
+  *ngIf="allTopicPostsDisplay.length > 0">
+  <mat-expansion-panel class="matExpansionPanelPrincipal"
+    *ngFor="let allTopicPostDisplay of allTopicPostsDisplay; index as i">
     <!-- HEADER: titre, username, date -->
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{allTopicPostDisplay.titre}}
+        {{allTopicPostDisplay.title}}
       </mat-panel-title>
       <mat-panel-description >
         <div>{{allTopicPostDisplay.username}}</div>
-        <div>{{allTopicPostDisplay.date}}</div>
+        <div>{{allTopicPostDisplay.date_post}}</div>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <!-- Description, fichiers, commentaires-->
+    <!-- Description, fichiers, commentaires -->
     <div class="cDescrip"> {{allTopicPostDisplay.description}} </div>
 
     <div class="cFile">
       <mat-tab-group [animationDuration]="650" class="my-custom-tabs">
         <mat-tab *ngFor="let file of allTopicPostDisplay.files" >
           <ng-template mat-tab-label>
-            <div class="fileTitle">{{file.titre}}.{{file.type}}</div>
+            <div>{{file.file_title}}.{{file.file_type}}</div>
           </ng-template>
+          <div> <pre class="fileDate"> {{file.file_date}}</pre> </div>
           <div>
-            <pre class="fileContent"> {{file.content}} </pre>
+            <pre class="fileContent"> {{file.file_content}} </pre>
           </div>
         </mat-tab>
       </mat-tab-group>
     </div>
 
     <div>
-      <div class="cComment" >
+      <div class="cComment">
         <div class="comments" *ngFor="let comment of allTopicPostDisplay.comments">
           <app-commentaires [commentaireRecu]=comment></app-commentaires>
         </div>
       </div>
     </div>
 
+    <!-- Formulaire pour ajouter un commentaire -->
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="headerForm">
+          <mat-panel-description class="descripForm">
+            Laisser un commentaire
+          </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <!-- Bouton: ajouter un commentaire-->
-    <mat-action-row>
-      <button mat-button color="primary" (click)="comment()">Laisser un commentaire</button>
-    </mat-action-row>
+        <form class="example-form" #commentForm="ngForm" (ngSubmit)="postComment(i)">
+          <table class="example-full-width"><tr>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Topic n°</mat-label>
+              <input matInput readonly
+                     [ngModel]="allTopicPostDisplay.id" name="topicID">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <mat-label>Today's date</mat-label>
+              <input matInput readonly
+                     [ngModel]="comment_date" name="comment_date" >
+            </mat-form-field></td>
+          </tr></table>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input
+              type="text"
+              matInput
+              [(ngModel)]="comment_user"
+              name="comment_user"
+              placeholder="Ex. Emma"
+              required
+            >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea
+              class="commentTextArea"
+              matInput [(ngModel)]="comment_content"
+              name="comment_content"
+              placeholder="Ex. You should add..."
+              minlength="10"
+              #content="ngModel"
+              required
+            ></textarea>
+            <div *ngIf="content.errors?.['minlength']" class="commentTextAreaInfo">
+              The comment must be longer.
+            </div>
+          </mat-form-field>
+
+          <div class="buttonCommentForm">
+            <button
+              [disabled]="!commentForm.form.valid"
+              mat-raised-button >
+              Laisser un commentaire
+            </button>
+          </div>
+
+
+        </form>
+
+      </mat-expansion-panel>
+    </mat-accordion>
 
   </mat-expansion-panel>
 </mat-accordion>
+
