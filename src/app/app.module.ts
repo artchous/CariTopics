@@ -16,7 +16,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatFabAnchor, MatFabButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
+import { CreateNewTopicPageComponent } from './pages/create-new-topic-page/create-new-topic-page.component';
+import { AddFilePageComponent } from './pages/add-file-page/add-file-page.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {MatButton} from "@angular/material/button";
     AppComponent,
     HeaderComponent,
     CommentairesComponent,
-    CariTopicPostsPageComponent
+    CariTopicPostsPageComponent,
+    CreateNewTopicPageComponent,
+    AddFilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,12 @@ import {MatButton} from "@angular/material/button";
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    MatButton
+    MatButton,
+    MatIconButton,
+    MatFabButton,
+    MatFabAnchor,
+    FormsModule,
+    MatMiniFabButton
 
   ],
   providers: [

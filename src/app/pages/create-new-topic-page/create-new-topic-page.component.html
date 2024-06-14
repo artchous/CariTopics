@@ -1,0 +1,67 @@
+<h1 class="titrePage"> Création d'un nouveau topic</h1>
+
+<div class="topicFormDisplay">
+<form class="formDisplay" #topicForm="ngForm" (ngSubmit)="postnewTopic(topicForm)">
+
+  <table class="input-full-width">
+    <tr>
+      <td>
+        <mat-form-field class="input-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput
+                 type="text"
+                 name="username"
+                 placeholder="Ex. Emma"
+                 ngModel required
+          >
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="input-full-width">
+          <mat-label>Today's date</mat-label>
+          <input matInput readonly
+                 name="date_post"
+                 [ngModel]="date_post"
+          >
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-form-field class="input-full-width">
+    <mat-label>Topic title</mat-label>
+    <input matInput
+           type="text"
+           name="title"
+           ngModel required
+    >
+  </mat-form-field>
+
+  <mat-form-field class="input-full-width">
+    <mat-label>Description</mat-label>
+    <textarea
+      class="descriptionArea"
+      matInput
+      name="description"
+      placeholder="Ex. I have a problem with..."
+      ngModel required
+    ></textarea>
+  </mat-form-field>
+
+  <div class="buttonTopicForm">
+    <button
+      id="button1-addTopic"
+      mat-raised-button
+      type="submit"
+      [disabled]="!topicForm.valid"
+    >
+      Ajouter les fichiers
+    </button>
+  </div>
+
+</form>
+</div>
+
+<!--
+<app-add-file-page></app-add-file-page>
+-->
