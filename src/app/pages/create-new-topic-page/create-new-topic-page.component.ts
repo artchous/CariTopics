@@ -40,8 +40,20 @@ export class CreateNewTopicPageComponent implements OnDestroy{
 
 
   private addFiles() {
-    window.location.href="http://localhost:4200/add-files"
-   // <HTMLInputElement>document.getElementById("button1-addTopic")
+    const button = document.getElementById("button1-addTopic");
+    // @ts-ignore
+    button.disabled = true;
+
   }
 
+  actionMethod($event: MouseEvent, form:NgForm) {
+    this.postnewTopic(form);
+    ($event.target as HTMLButtonElement).disabled = true;
+    ($event.target as HTMLButtonElement).style.background='grey';
+  }
 }
+
+/**
+ * https://stackoverflow.com/questions/52508126/how-to-disable-button-after-click-in-angular
+ * https://stackoverflow.com/questions/69846386/how-to-color-the-background-with-event-target
+ * **/

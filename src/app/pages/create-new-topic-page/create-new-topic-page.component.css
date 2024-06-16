@@ -37,7 +37,16 @@
 
 .buttonTopicForm{
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  margin:0 20%;
 }
 
 
+.commentTextAreaInfo{
+  font-size: 10px;
+  font-weight: bold;
+  color: #9e4654;
+  display: flex;
+  justify-content: center;
+}

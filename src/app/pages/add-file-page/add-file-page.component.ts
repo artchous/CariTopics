@@ -1,11 +1,8 @@
-import {Component, Input, OnDestroy} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {finalize, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {TopicsPostsService} from "../../services/topics-posts.service";
 import {NgForm} from "@angular/forms";
-import {CariTopicPostsPageComponent} from "../cari-topic-posts-page/cari-topic-posts-page.component";
-import {TopicFile} from "../../models/file.model";
-import {TopicPostDisplay} from "../../models/topic-post-display.model";
 
 @Component({
   selector: 'app-add-file-page',
@@ -15,6 +12,7 @@ import {TopicPostDisplay} from "../../models/topic-post-display.model";
 export class AddFilePageComponent implements OnDestroy{
 
   /** pour formAddFiles **/
+  numFichier:number;
   public nombreTopics:number;
   date_post: string = new Date().toLocaleDateString();
   public nbrFicher:number;
@@ -27,6 +25,7 @@ export class AddFilePageComponent implements OnDestroy{
   constructor(private topicsPostsService: TopicsPostsService) {
     this.getTopics();
     this.loader=false;
+    this.numFichier=-1;
   }
 
 public compterNbr(){
@@ -53,17 +52,30 @@ public compterNbr(){
 
 
   //postFile
-  public postFile(form:NgForm){
-    this.loader = true;
-    this.postFileSubscription = this.topicsPostsService.postFiles$(form.value)
-      .pipe(finalize(() => this.loader = true))
-      .subscribe(() => this.reloadPage())
-    console.log(form.value)
+  public postFile(form:NgForm,i:number){
+    if(this.numFichier!=i) {
+      this.loader = true;
+      this.postFileSubscription = this.topicsPostsService.postFiles$(form.value)
+        .pipe(finalize(() => this.loader = true))
+        .subscribe(() => this.reloadPage(i))
+      this.numFichier = i;
+    }
+
   }
 
 
-  private reloadPage() {
-    window.location.href="http://localhost:4200/"
+  private reloadPage(index:number) {
+      if (index == (this.nbrFicher-1)) {
+        window.location.href="http://localhost:4200/"
+      }
+  }
+
+  actionMethod($event: MouseEvent) {
+    ($event.target as HTMLButtonElement).disabled = true;
+    ($event.target as HTMLButtonElement).style.background='grey';
   }
 
 }
+
+//https://stackoverflow.com/questions/51098464/angular-two-buttons-to-submit-a-form-but-with-different-purpose
+//https://stackoverflow.com/questions/71221141/create-many-forms-in-one-component

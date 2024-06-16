@@ -1,8 +1,3 @@
-<!--
-"topicID": 0,
-
-  "file_content": "",
--->
 <h1 class="titrePage"> Ajout des fichiers </h1>
 
 <form class="topicFormDisplay">
@@ -27,9 +22,89 @@
   </button>
 </form>
 
+<!--
+  <div class="topicFormDisplay" *ngFor="let file of [].constructor(nbrFicher); index as i;">
+    <form class="formDisplay"  #fileForm="ngForm" (ngSubmit)="postFile(fileForm)">
 
-<div class="topicFormDisplay" *ngFor="let file of [].constructor(nbrFicher)">
-  <form class="formDisplay" #fileForm="ngForm" (ngSubmit)="postFile(fileForm)">
+      <table class="input-full-width">
+        <tr>
+          <td>
+            <mat-form-field class="input-full-width">
+              <mat-label>File title</mat-label>
+              <input matInput
+                     type="text"
+                     name="file_title"
+                     placeholder="Ex. helloWorld"
+                     ngModel required
+              >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="input-full-width">
+              <mat-label>File type</mat-label>
+              <input matInput
+                     type="text"
+                     name="file_type"
+                     placeholder="Ex. html"
+                     ngModel required
+              >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="input-full-width">
+              <mat-label>Topic n°</mat-label>
+              <input matInput readonly
+                     name="topicID"
+                     [ngModel]="nombreTopics+1"
+              >
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="input-full-width">
+              <mat-label>Today's date</mat-label>
+              <input matInput readonly
+                     name="file_date"
+                     [ngModel]="date_post"
+              >
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+
+      <mat-form-field class="input-full-width">
+        <mat-label>Description</mat-label>
+        <textarea
+          class="descriptionArea"
+          matInput
+          name="file_content"
+          placeholder="Ex. if (blabla == my test {
+      //do something
+      }..."
+          ngModel required
+        ></textarea>
+      </mat-form-field>
+
+      <div class="buttonTopicForm">
+        <button
+          mat-raised-button
+          type="submit"
+          [disabled]=
+            "!fileForm.valid"
+        >
+          Ajouter les fichiers
+        </button>
+
+
+      </div>
+    </form>
+
+  </div>
+
+-->
+
+<div class="topicFormDisplay" *ngFor="let file of [].constructor(nbrFicher); index as i;">
+  <form class="formDisplay"  #fileForm="ngForm" (ngSubmit)="postFile(fileForm,i)">
 
     <table class="input-full-width">
       <tr>
@@ -60,7 +135,7 @@
             <mat-label>Topic n°</mat-label>
             <input matInput readonly
                    name="topicID"
-                   [ngModel]="nombreTopics"
+                   [ngModel]="nombreTopics+1"
             >
           </mat-form-field>
         </td>
@@ -92,15 +167,18 @@
 
     <div class="buttonTopicForm">
       <button
+        id="i"
         mat-raised-button
         type="submit"
-        [disabled]="!fileForm.valid"
+        [disabled]=
+          "!fileForm.valid"
+        (click)="actionMethod($event)"
       >
-        Ajouter les fichiers
+        Ajouter le fichier
       </button>
-
     </div>
   </form>
 
 </div>
+
 

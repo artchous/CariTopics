@@ -52,16 +52,17 @@
     <button
       id="button1-addTopic"
       mat-raised-button
-      type="submit"
+      type="button"
       [disabled]="!topicForm.valid"
+      (click)="actionMethod($event,topicForm)"
     >
       Ajouter les fichiers
     </button>
+    <div class="commentTextAreaInfo">Attention vous ne pourrez pas modifier après!</div>
   </div>
 
 </form>
 </div>
 
-<!--
 <app-add-file-page></app-add-file-page>
--->
+
