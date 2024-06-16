@@ -1,0 +1,52 @@
+.titrePage {
+  margin:110px 30% 30px 30%;
+  color: #005c75;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #dddddd;
+  border-radius: 10px;
+
+}
+
+.topicFormDisplay {
+  margin:0 12% 30px 12%;
+  padding: 25px;
+  border-radius: 20px;
+  border: 3px solid #d7d7d7;
+  background:white;
+}
+
+.formDisplay {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: contents;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+
+.descriptionArea{
+  font-size: 15px;
+  font-weight: bold;
+  color: #9e4654;
+}
+
+.buttonTopicForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:0 20%;
+}
+
+
+.commentTextAreaInfo{
+  font-size: 10px;
+  font-weight: bold;
+  color: #9e4654;
+  display: flex;
+  justify-content: center;
+}

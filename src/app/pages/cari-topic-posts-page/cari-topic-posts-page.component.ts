@@ -13,14 +13,14 @@ import {TopicComment} from "../../models/topicComment";
 
 export class CariTopicPostsPageComponent implements OnChanges, OnDestroy {
 
+
   /** Pour formCommentaire **/
   comment_user: string;
   comment_content: string;
   comment_date: string = new Date().toLocaleDateString();
-  protected readonly Object = Object;
   private postCommentSubscription: Subscription;
   public loader: boolean;
-  public router: Router
+  public router: Router;
 
   /** Si pas de données du BE, prend les données en dur**/
   public allTopicPostsDisplay: TopicPostDisplay[] =
@@ -39,7 +39,8 @@ export class CariTopicPostsPageComponent implements OnChanges, OnDestroy {
     this.postCommentSubscription?.unsubscribe();
   }
 
-  //topics
+
+  //ramène les topics du BE
   private getTopics() {
     this.topicsPostsService.getTopicPostDisplay$().subscribe(
       {
@@ -51,6 +52,7 @@ export class CariTopicPostsPageComponent implements OnChanges, OnDestroy {
       }
     )
   }
+
 
   //post Comment
   public postComment(index: number) {
@@ -66,9 +68,9 @@ export class CariTopicPostsPageComponent implements OnChanges, OnDestroy {
 
   }
 
+
   private reloadPage() {
     window.location.reload();
   }
-
 
 }

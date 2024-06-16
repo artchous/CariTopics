@@ -11,7 +11,6 @@ export class TopicPostDisplay {
   public comments: TopicComment[];
 
   constructor( ) {
-    this.id = 1;
     this.title = 'Topic 1';
     this.username = 'Lilly Bloom';
     this.date_post = new Date().toLocaleDateString();
